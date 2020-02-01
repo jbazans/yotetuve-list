@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Yo Te Tuve - Lista</title>
+	<script type="text/javascript" src="jquery-3.4.1.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!--
+		COMENZAMOS CON LOS LINKS DE LOS RECURSOS A USAR
+	-->
+	<style type="text/css">
+		body,html{
+			margin: 0;
+			background: #444;
+			font-size: 15px;
+			font-family: sans-serif;
+		}
+		.header-class{
+			line-height: 50px;
+			height: 50px;
+			padding: 0px 10px;
+			width: calc(100% - 20px);
+			display: flex;
+			background: #333;
+			position: fixed;
+			top: 0px;
+			left: 0px;
+			z-index: 2;
+		}
+		.main-content-header{
+			width: 300px;
+			color: #fff;
+			display: flex;
+		}
+		.icon-class{
+			width: 20%;
+			font-size: 24px;
+			text-align: center;
+		}
+		.title-header{
+			width: 80%;
+			font-weight: bold;
+			font-size: 17px;
+		}
+		.secondary-content-header{
+			width: calc(100% - 300px);
+			display: flex;
+		}
+		.search-box{
+			width: 60%;			
+		}
+		.input-search{
+			width: calc(100% - 20px);
+			padding: 5px 10px;
+			color: #fff;
+			background: #444;
+			border-style: none;
+			height: 20px;
+			font-size: 16px;
+		}
+		.search-button-content{
+			width: 50px;
+			padding-top: 10px;
+		}
+		.search-button{
+			width: 100%;
+			line-height: 30px;
+			background: #666;
+			color: #ccc;
+			text-align: center;
+			cursor: pointer;
+		}
+		.main-content-class{
+			margin: auto;
+			padding: 10px;
+			max-width: 1180px;
+			margin-top: 50px;
+			height: calc(100vh - 70px);
+		}
+		.default-page{
+			width: 100%;
+		}
+		.text-basic{
+			color: #fff;
+			font-size: 23px;
+		}
+		.result-search{
+			width: 100%;
+			overflow: hidden;
+		}
+		.item-result{
+			width: 100%;
+			display: flex;
+			height: 143px;/*Dependera del tamaño de su imagen*/
+			overflow: hidden;
+			margin-bottom: 10px;
+		}
+		.img-place{
+			width: 250px;/*Dependera que tan grande quieran que se vea*/
+		}
+		.img-banner{
+			width: 100%;
+		}
+		.detail-place{
+			padding-left: 10px;
+			width: calc(100% - 260px);
+		}
+		.main-title-result{
+			font-size: 23px;
+			color: #fff;
+			padding-bottom: 5px;
+		}
+		.secondary-title-result{
+			font-size: 13px;
+			color: #ccc;
+			padding-bottom: 10px;
+		}
+		.description-result{
+			font-size: 13px;
+			color: #ccc;
+			padding-bottom: 5px;
+		}
+	</style>
+</head>
+<body>
+	<div class="header-class">
+		<div class="main-content-header">
+			<div class="icon-class"><i class="fa fa-bars" aria-hidden="true"></i></div>
+			<div class="title-header">Yo Te Tuve</div>
+		</div>
+		<div class="secondary-content-header">
+			<div class="search-box">
+				<input class="input-search" type="text" id="textsearch" placeholder="Buscar" />
+			</div>
+			<div class="search-button-content">
+				<div class="search-button" onclick="function_search()"><i class="fa fa-search" aria-hidden="true"></i></div>
+			</div>
+		</div>
+	</div>
+	<div class="main-content-class">
+		<!--OCULTAMOS LA LISTA PARA MOSTRARLA SOLO CUANDO SE HACE LA BUSQUEDA-->
+		<div class="default-page" id="content-default">
+			<div class="text-basic">A espera de la b&uacute;squeda! :)</div>
+		</div>
+		<div class="result-search" id="content-result" style="display: none;">
+			<div class="item-result">
+				<div class="img-place">
+					<img class="img-banner" src="assets/banner.jpg" />
+				</div>
+				<div class="detail-place">
+					<div class="main-title-result">Text de Prueba # 1</div>
+					<div class="secondary-title-result">Canal de prueba - 100K vistas - hace 2 semanas</div>
+					<div class="description-result">Aqui va una descripcion que no tiene relevancia por ahora</div>
+				</div>
+			</div>
+			<!--Pueden usarlo para mas resultados-->			
+			<div class="item-result">
+				<div class="img-place">
+					<img class="img-banner" src="assets/banner.jpg" />
+				</div>
+				<div class="detail-place">
+					<div class="main-title-result">Text de Prueba # 1</div>
+					<div class="secondary-title-result">Canal de prueba - 100K vistas - hace 2 semanas</div>
+					<div class="description-result">Aqui va una descripcion que no tiene relevancia por ahora</div>
+				</div>
+			</div>
+			<div class="item-result">
+				<div class="img-place">
+					<img class="img-banner" src="assets/banner.jpg" />
+				</div>
+				<div class="detail-place">
+					<div class="main-title-result">Text de Prueba # 1</div>
+					<div class="secondary-title-result">Canal de prueba - 100K vistas - hace 2 semanas</div>
+					<div class="description-result">Aqui va una descripcion que no tiene relevancia por ahora</div>
+				</div>
+			</div>
+			<div class="item-result">
+				<div class="img-place">
+					<img class="img-banner" src="assets/banner.jpg" />
+				</div>
+				<div class="detail-place">
+					<div class="main-title-result">Text de Prueba # 1</div>
+					<div class="secondary-title-result">Canal de prueba - 100K vistas - hace 2 semanas</div>
+					<div class="description-result">Aqui va una descripcion que no tiene relevancia por ahora</div>
+				</div>
+			</div>
+			<div class="item-result">
+				<div class="img-place">
+					<img class="img-banner" src="assets/banner.jpg" />
+				</div>
+				<div class="detail-place">
+					<div class="main-title-result">Text de Prueba # 1</div>
+					<div class="secondary-title-result">Canal de prueba - 100K vistas - hace 2 semanas</div>
+					<div class="description-result">Aqui va una descripcion que no tiene relevancia por ahora</div>
+				</div>
+			</div>
+			<div class="item-result">
+				<div class="img-place">
+					<img class="img-banner" src="assets/banner.jpg" />
+				</div>
+				<div class="detail-place">
+					<div class="main-title-result">Text de Prueba # 1</div>
+					<div class="secondary-title-result">Canal de prueba - 100K vistas - hace 2 semanas</div>
+					<div class="description-result">Aqui va una descripcion que no tiene relevancia por ahora</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		function function_search(){
+			//validamos si es vacio el texto a buscar
+			if ($("#textsearch").val()=="") {
+				$("#content-default").css("display","block");
+				$("#content-result").css("display","none");
+			}else{
+				$("#content-default").css("display","none");
+				$("#content-result").css("display","block");
+			}
+		}
+	</script>
+</body>
+</html>
